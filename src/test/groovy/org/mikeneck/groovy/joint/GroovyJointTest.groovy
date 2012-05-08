@@ -96,6 +96,18 @@ class GroovyJointTest {
     }
 
     @Test
+    void singleton () {
+        def original = GroovyJoint.getImplementOf(Groovy.class)
+        assert original == GroovyJoint.getImplementOf(Groovy.class)
+    }
+
+    @Test
+    void notSingleton () {
+        def first = GroovyJoint.getImplementOf(NotSingleton.class)
+        assert first != GroovyJoint.getImplementOf(NotSingleton.class)
+    }
+
+    @Test
     void classLoaderIsNotNull () {
         assert GroovyJoint.loader != null
     }

@@ -13,9 +13,17 @@ import java.lang.annotation.Target;
 public @interface GroovyImpl {
 
     /**
-     * Indicates the class name whose groovy class should implement an interface annotated.<br/>
+     * Indicates the groovy class name which implements the interface.<br/>
      * The class name should be given FQCN to.
-     * @return
+     * @return groovy class name.
      */
     public String implementedBy() default "";
+
+    /**
+     * The use scope for the implement class. <br/>
+     * If you want to use as singleton give {@code true} to this. If not give {@code false}.<br/>
+     * {@code true} is given in default.
+     * @return scope.
+     */
+    public boolean singleton () default true;
 }
